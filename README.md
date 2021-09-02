@@ -25,10 +25,28 @@ One of the simplest method of deployment is to create a container for this. The 
 ```
 FROM nginx:latest
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
-``
+```
 As can be seen above the NGIX configuration file named *nginx.conf* is copied to the destination */etc/nginx/conf.d/default.conf*
 
 That's all there is. As this is docker, you need to do:
 1. Docker build
 2. Docker tag
 3. Docker push
+
+The docker image can then be run in some container host.
+
+## Configuration of target Azure app service
+The target app service needs to be set up with *access restriction*. This can be found under *Networking*
+
+![alt text](app-service-networking.png "App Service Networking")
+
+If you click on *Access Restriction* you get:
+
+![alt text](app-service-access.png "App Service Access Restriction")
+
+You can then setup an access rule. Press *Add Rule*:
+
+![alt text](app-service-add-rule.png "App Service Access Add Rule")
+
+
+
