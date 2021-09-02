@@ -48,5 +48,13 @@ You can then setup an access rule. Press *Add Rule*:
 
 ![alt text](app-service-add-rule.png "App Service Access Add Rule")
 
+The items highlighted above need to be entered:
+1. There needs to be a name for the rule
+2. There needs to be a priority, 300 is good.
+3. You need to set the source IP address of the proxy. This is in CIDR notation.
+4. You need to set the FDID to be the same as that of the proxy. This can be a GUID or something else. This is just hijacking the mechanism that Azure front door uses to identify to an app service which instance of front door is making the requests. As can be seen, there are some other HTTP header choices, but to use these, the NGINX configuration file will need to be amended to inject that header.
+
+## Summary
+There are a number of means of performing access restriction on an app service to a selected audience. The use of a proxy is one such measure. By using NGINX in a container, this can be setup very quickly.
 
 
